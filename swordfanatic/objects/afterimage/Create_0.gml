@@ -1,0 +1,1 @@
+decayspeed = 1
