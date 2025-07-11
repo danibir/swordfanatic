@@ -1,9 +1,11 @@
 
 xspeed *= 0.6
-fallspeed += grav
+yspeed *= 0.6
 
-var terrCol = move_and_collide(xspeed, fallspeed, global.tilemap)
-if array_length(terrCol) > 0
+var horCol = move_and_collide(xspeed, 0, global.tilemap)
+var verCol = move_and_collide(0, yspeed, global.tilemap)
+/*
+if array_length(verCol) > 0
 {
 	fallspeed = 0
 	grounded = 5

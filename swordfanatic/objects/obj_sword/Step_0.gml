@@ -29,7 +29,7 @@ if host != noone
 	var duration = 60 / attackspeed
 	if phase = 1
 	{
-		timer = duration / 4
+		timer = duration / 8 
 		phase = 2
 	}
 	if phase = 2

@@ -2,6 +2,10 @@ if keyboard_check(ord("A"))
 	xspeed -= 1
 if keyboard_check(ord("D"))
 	xspeed += 1
+if keyboard_check(ord("W"))
+	yspeed -= 1
+if keyboard_check(ord("S"))
+	yspeed += 1
 
 event_inherited()
 
@@ -10,6 +14,7 @@ sword.y = y
 with sword
 {
 }
+/*
 if grounded > 0
 {
 	jumps = maxjumps
@@ -20,7 +25,7 @@ else
 }
 if keyboard_check_pressed(vk_space) and jumps > 0
 {
-	fallspeed = -4
+	fallspeed = -4.1		
 	jumps--
 	jumping = true
 }

@@ -1,4 +1,5 @@
-draw_self()
+
+draw_sprite_ext(sprite_index, image_index, 0, 0, image_xscale, image_yscale, 0, c_white, 1);
 // Create a surface if not already created
 var surf = surface_create(sprite_width, sprite_height);
 
@@ -9,17 +10,19 @@ draw_sprite_ext(sprite_index, image_index, 0, 0, image_xscale, image_yscale, 0, 
 surface_reset_target();
 
 // Read pixel at (x, y)
-var pxcount = 21
+
+var pxcount = 20
 var pycount = 12
 for (var px = 0; px < pxcount; px++)
 for (var py = 0; py < pycount; py++)
 {
-	var usepx = (room_width / pxcount) * px + x
-	var usepy = (room_height / pycount) * py + y
+	var usepx = (global.camera_width / pxcount) * px
+	var usepy = (global.camera_height / pycount) * py
+	//show_message([usepx, usepy])
 	var color_value = color_value_to_rgb(surface_getpixel(surf, usepx, usepy))
 	if color_value[0] = 255 and color_value[1] = 255 and color_value[2] = 255
 	{
-		tilemap_set(global.tilemap, 1, px + x / pxcount, py + y / pycount)
+		tilemap_set(global.tilemap, 1, px + (x * 1.25) / pxcount, py + (y * 0.75) / pycount)
 	}
 	else
 	{
@@ -29,6 +32,7 @@ for (var py = 0; py < pycount; py++)
 }
 
 // Don't forget to free the surface after use
+//*/
 surface_free(surf);
 /*
 draw_set_color(c_ltgrey)

@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite5",
-    "path":"sprites/Sprite5/Sprite5.yy",
+    "name":"roomspr_0",
+    "path":"sprites/roomspr_0/roomspr_0.yy",
   },
   "spriteMaskId":null,
   "visible":true,
