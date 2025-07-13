@@ -1,5 +1,6 @@
 degrees = 0
-createRoom = noone
+heldRoom = noone
+createRoom = false
 image_xscale /= sprite_width
 image_yscale /= sprite_height
 image_xscale *= global.camera_width / 2
