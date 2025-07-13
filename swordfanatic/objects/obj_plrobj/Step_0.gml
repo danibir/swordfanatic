@@ -1,11 +1,19 @@
-if keyboard_check(ord("A"))
-	xspeed -= 1
-if keyboard_check(ord("D"))
-	xspeed += 1
-if keyboard_check(ord("W"))
-	yspeed -= 1
-if keyboard_check(ord("S"))
-	yspeed += 1
+if global.cutscene = false
+{
+	if keyboard_check(ord("A"))
+		xspeed -= 1
+	if keyboard_check(ord("D"))
+		xspeed += 1
+	if keyboard_check(ord("W"))
+		yspeed -= 1
+	if keyboard_check(ord("S"))
+		yspeed += 1
+}
+if keyboard_check(vk_space)
+{
+	x = lerp(x, mouse_x, 0.5)
+	y = lerp(y, mouse_y, 0.5)
+}
 
 event_inherited()
 

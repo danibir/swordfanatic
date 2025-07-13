@@ -13,8 +13,8 @@ surface_reset_target();
 
 var pxcount = 20
 var pycount = 12
-for (var px = 0; px < pxcount; px++)
-for (var py = 0; py < pycount; py++)
+for (var px = 0; px + 0 < pxcount; px++)
+for (var py = 0; py + 0 < pycount; py++)
 {
 	var usepx = (global.camera_width / pxcount) * px
 	var usepy = (global.camera_height / pycount) * py
@@ -28,6 +28,17 @@ for (var py = 0; py < pycount; py++)
 	{
 		//tilemap_set(global.tilemap, 0, px, py)
 	}
+	if px = 0 and doorLeft = true or py = 0 and doorUp = true or px = pxcount - 1 and doorRight = true or py = pycount - 1 and doorDown = true
+	{
+		var door = false
+		if px >= floor(pxcount / 2 - 1) and px <= ceil(pxcount / 2)
+			door = true
+		if py >= floor(pycount / 2 - 1) and py <= ceil(pycount / 2)
+			door = true
+		if door = true
+			tilemap_set(global.tilemap, 0, px + (x * 1.25) / pxcount, py + (y * 0.75) / pycount)
+	}
+	
 	die = true
 }
 

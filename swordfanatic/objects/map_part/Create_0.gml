@@ -1,5 +1,5 @@
 degrees = 0
-instance_create_layer(x - global.camera_width / 2, y - global.camera_height / 2, "Instances", map_placer)
+createRoom = noone
 image_xscale /= sprite_width
 image_yscale /= sprite_height
 image_xscale *= global.camera_width / 2

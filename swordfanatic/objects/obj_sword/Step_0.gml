@@ -2,7 +2,7 @@ var afterimageToggle = false
 if not instance_exists(host)
 	host = noone
 	
-if host != noone
+if host != noone and global.cutscene = false
 {
 	cooldown--
 	if phase <= 1
