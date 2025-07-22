@@ -1,0 +1,1 @@
+spriteroomlist = [roomspr_1, roomspr_2, roomspr_3, roomspr_4, roomspr_5, roomspr_6]

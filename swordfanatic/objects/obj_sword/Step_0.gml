@@ -1,7 +1,9 @@
 var afterimageToggle = false
 if not instance_exists(host)
 	host = noone
-	
+
+hurtbox.enabled = false
+
 if host != noone and global.cutscene = false
 {
 	cooldown--
@@ -29,7 +31,7 @@ if host != noone and global.cutscene = false
 	var duration = 60 / attackspeed
 	if phase = 1
 	{
-		timer = duration / 8 
+		timer = duration / 4 
 		phase = 2
 	}
 	if phase = 2
@@ -38,17 +40,19 @@ if host != noone and global.cutscene = false
 		if timer <= 0
 		{
 			phase = 3
-			timer = duration / 4
+			timer = duration / 2
 			if sign(side) != sign(flipside)
 				side *= -1
+			hurtbox.gotlist = []
 		}
 	}
 	if phase = 3
 	{
 		afterimageToggle = true
+		hurtbox.enabled = true
 		//show_message((timer) / (duration / 15))
 		side = 1.15
-		side *= lerp(flipside, -flipside, 1 - (timer) / (duration / 4))
+		side *= lerp(flipside, -flipside, 1 - (timer) / (duration / 2))
 		//if 1 - (timer) / (duration / 4) > 0.5
 		//	side *= -1
 			
@@ -59,7 +63,7 @@ if host != noone and global.cutscene = false
 		if timer <= 0
 		{
 			phase = 5
-			timer = duration / 3
+			timer = duration / 4
 		}
 	}
 	if phase = 5
@@ -119,6 +123,12 @@ else
 {
 	oldAfterImage = noone
 }
+hurtbox.x = x
+hurtbox.y = y
+hurtbox.image_angle = image_angle
+hurtbox.knockdir = image_angle + 90
+with hurtbox
+move_direction(sprite_height / 2, image_angle + 90)
 /*
 if keyboard_check_pressed(vk_down)
 	attackspeed /= 2

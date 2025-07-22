@@ -10,4 +10,5 @@ doorRight = false
 doorDown = false
 
 holdsRoom = false
+enemies = true
 die = false

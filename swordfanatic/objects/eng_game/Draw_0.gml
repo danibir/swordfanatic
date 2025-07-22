@@ -4,5 +4,5 @@ if game_loaded = false and wait > 75
 	draw_set_color(c_white)
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_middle)
-	draw_text(camera.x, camera.y, "Loading...")
+	draw_text(camera.x, camera.y + 50, "Loading...")
 }
