@@ -35,8 +35,8 @@ for (var py = 0; py + 0 < pycount; py++)
 	else
 	{
 		tilemap_set(global.tilemap, 0, px + (x * 1.25) / pxcount, py + (y * 0.75) / pycount)
-		if enemies = true and floor(random_range(0, 3)) = 0
-			instance_create_layer(x + (global.camera_width / pxcount) * px + 8, y + (global.camera_height / pycount) * py + 8, "Instances", obj_enemy)
+		if enemies = true and floor(random_range(0, 28)) = 0
+			instance_create_layer(x + (global.camera_width / pxcount) * px + 8, y + (global.camera_height / pycount) * py + 8, "Instances", enm_turret)
 		//tilemap_set(global.tilemap, 0, px, py)
 	}
 	if px = 0 and doorLeft = true or py = 0 and doorUp = true or px = pxcount - 1 and doorRight = true or py = pycount - 1 and doorDown = true

@@ -56,8 +56,6 @@ if keyboard_check(vk_space)
 }
 
 event_inherited()
-sword.x = x
-sword.y = y
 
 /*
 if grounded > 0

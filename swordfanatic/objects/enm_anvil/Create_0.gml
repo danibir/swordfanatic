@@ -1,7 +1,7 @@
 // Inherit the parent event
 event_inherited();
 
-hp = 1
+hp = 3
 maxhp = 3
 weight = 3
 
@@ -21,7 +21,7 @@ slidecooldown = slidecooldownmax
 sliding = false
 
 hurtbox = instance_create_layer(x, y, "Instances", hitbox)
-hurtbox.enabled = true
+hurtbox.enabled = false
 hurtbox.evil = noone
 array_push(hurtbox.blacklist, self)
 hurtbox.knockback = 5
@@ -36,7 +36,7 @@ evil = true
 pixelsize = 14
 image_xscale *= pixelsize
 image_yscale *= pixelsize
-
+hurtbox.depth--
 hurtbox.image_xscale /= hurtbox.sprite_width
 hurtbox.image_yscale /= hurtbox.sprite_height
 hurtbox.image_xscale *= pixelsize * 0.7

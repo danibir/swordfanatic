@@ -6,6 +6,8 @@ special = false
 xnum = 0
 ynum = 0
 
+autodoor = false
+
 doorRight = false
 doorDown = false
 doorLeft = false

@@ -10,7 +10,7 @@ walkspeed = 1
 hp = 55
 maxhp = 55
 
-dashcooldownmax = 30
+dashcooldownmax = 60
 dashcooldown = 0
 dashdurmax = 10
 dashspeed = 15
@@ -18,6 +18,6 @@ dashdur = 0
 dashdir = [0, 0]
 
 depth++
-
-sword = instance_create_layer(x, y, "Instances", obj_sword)
+/*
+sword = instance_create_layer(x, y, "Instances", melee_hammer)
 sword.host = self

@@ -4,6 +4,9 @@ weight = 1
 
 enabled_by_room = false
 
+targeting = false
+target = [x, y]
+
 invultimer = 15
 invul = true
 
@@ -27,6 +30,8 @@ horCol = []
 verCol = []
 horKnock = []
 verKnock = []
+
+contact_damage = false
 
 image_xscale /= sprite_width
 image_yscale /= sprite_height

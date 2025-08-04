@@ -41,7 +41,7 @@ invul = true
 if invultimer <= 0
 	invul = false
 
-if variable_instance_exists(self, "hurtbox")
+if contact_damage = true
 {	
 	hurtbox.x = x
 	hurtbox.y = y

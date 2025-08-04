@@ -37,6 +37,6 @@ for (var a = 1; a < room_count_x; a++)
 
 
 instance_create_layer(x, y, "Instances", music)
-instance_create_layer(x, y, "Instances", eng_game)
+instance_create_layer(x, y, "UI", eng_game)
 
 var generator = instance_create_layer(x, y, "Instances", map_generator)

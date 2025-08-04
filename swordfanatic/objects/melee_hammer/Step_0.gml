@@ -40,7 +40,7 @@ if host != noone and global.cutscene = false
 		if timer <= 0
 		{
 			phase = 3
-			timer = duration / 2
+			timer = duration / 4
 			if sign(side) != sign(flipside)
 				side *= -1
 			hurtbox.gotlist = []
@@ -52,7 +52,7 @@ if host != noone and global.cutscene = false
 		hurtbox.enabled = true
 		//show_message((timer) / (duration / 15))
 		side = 1.15
-		side *= lerp(flipside, -flipside, 1 - (timer) / (duration / 2))
+		side *= lerp(flipside, -flipside, 1 - (timer) / (duration / 4))
 		//if 1 - (timer) / (duration / 4) > 0.5
 		//	side *= -1
 			
@@ -97,6 +97,8 @@ if angle < 0
 var lerpspeed = attackspeed * 0.2
 lerpspeed = min(lerpspeed, 1)
 image_angle = lerp(image_angle, angle, lerpspeed)
+x = host.x
+y = host.y
 move_direction(host.pixelsize * 0.6, image_angle + 90)
 if afterimageToggle = true
 {
@@ -126,9 +128,9 @@ else
 hurtbox.x = x
 hurtbox.y = y
 hurtbox.image_angle = image_angle
-hurtbox.knockdir = image_angle + 90
+hurtbox.knockdir = image_angle * sign(image_xscale)
 with hurtbox
-move_direction(sprite_height / 2, image_angle + 90)
+	move_direction(sprite_height * 2, image_angle + 90)
 /*
 if keyboard_check_pressed(vk_down)
 	attackspeed /= 2

@@ -11,12 +11,12 @@ else
 	valid = true
 	//eng_game.wait = 90
 	//show_message("generating room")
-	var placement = [0, 1, 2]
+	var placement = [1, 0, 2] //| 0 = r | 1 = d | 2 = l | 3 = u |
 
 	var growroom = array_pop(potentialrooms)
 	//show_message(growroom)
 
-	var growcount = choose(0, 1)
+	var growcount = choose(0, 1, 1, 1, 2)
 	if array_length(potentialrooms) = 0
 		growcount = max(growcount, 1)
 	//show_message(growcount)
@@ -44,6 +44,26 @@ else
 			//show_message(newroom)
 			if newroom != noone and newroom.heldRoom = noone
 			{
+				if place = 0
+				{	
+					growroom.doorRight = true
+					newroom.doorLeft = true
+				}
+				if place = 1
+				{	
+					growroom.doorDown = true
+					newroom.doorUp = true
+				}
+				if place = 2
+				{	
+					growroom.doorLeft = true
+					newroom.doorRight = true
+				}
+				if place = 3
+				{	
+					growroom.doorUp = true
+					newroom.doorDown = true
+				}
 				newroom.createRoom = true
 				newroom.roomSprite = array_get_random(dictionary.spriteroomlist)
 				array_push(potentialrooms, newroom)
@@ -53,7 +73,10 @@ else
 				generatesuccess = true
 				count--
 				if count = 0
+				{
 					newroom.roomSprite = roomspr_boss
+					newroom.special = "boss"
+				}
 				break
 			}
 			if generatesuccess = true

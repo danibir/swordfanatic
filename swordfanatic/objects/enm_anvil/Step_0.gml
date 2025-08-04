@@ -1,13 +1,4 @@
-targeting = false
-if not tileCollisionLine(x, y, 1, global.tilemap, 1, distance_to_object(obj_plrobj), point_direction(x, y,  obj_plrobj.x, obj_plrobj.y))
-{
-	targeting = true
-}
-if targeting = true
-{
-	target[0] = obj_plrobj.x + 10* obj_plrobj.xspeed / (0.5+ distance_to_object(obj_plrobj) / 15)
-	target[1] = obj_plrobj.y + 10* obj_plrobj.yspeed / (0.5+ distance_to_object(obj_plrobj) / 15)
-}
+
 if enabled_by_room = false and sliding = false
 {
 	targeting = false
@@ -17,6 +8,7 @@ if dead = true
 {
 	slide = false
 	slide = [0, 0]
+	targeting = false
 }
 slidecooldown--
 if slidecooldown <= 0
@@ -77,6 +69,7 @@ if sliding = true
 		if not array_length(hurtbox.gotlist) > 0
 		{
 		}
+		hurtbox.gotlist = []
 	}
 	if dead = true
 	{
@@ -87,9 +80,10 @@ if sliding = true
 		sliding = false
 	}
 }
+
 event_inherited()
-hurtbox.x += xspeed
-hurtbox.y += yspeed
+hurtbox.x = x + xspeed
+hurtbox.y = y + yspeed
 hurtbox.knockback = 1.75 + (abs(xspeed) + abs(yspeed)) * 2
 hurtbox.knockdir = point_direction(x, y, x + slide[0], y + slide[1])
 
