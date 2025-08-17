@@ -1,12 +1,15 @@
+///force bossroom from generating room
+
+
 //show_message([potentialrooms, count])
-if array_length(potentialrooms) = 0 and valid = true or count <= 0
+if array_length(potentialrooms) = 0 and valid = true or count <= 0 or forceend = true
 {
 	//show_message("map generated")
 	show_debug_message("map generated")
 		global.rooms = allrooms
 		instance_destroy(self)
 }
-else
+else 
 {
 	valid = true
 	//eng_game.wait = 90
@@ -16,9 +19,11 @@ else
 	var growroom = array_pop(potentialrooms)
 	//show_message(growroom)
 
-	var growcount = choose(0, 1, 1, 1, 2)
-	if array_length(potentialrooms) = 0
+	var growcount = choose(0, 1, 1, 1, 1, 1, 1, 2)
+	if array_length(potentialrooms) != 0
 		growcount = max(growcount, 1)
+	if count < 3
+		growcount = 1
 	//show_message(growcount)
 	var generatesuccess = false
 	if startroom = true
@@ -28,6 +33,8 @@ else
 	{
 		while true
 		{
+			if growroom.special != 0
+				show_message("ga")
 			placement = array_shuffle(placement)
 			var place = array_pop(placement)
 			//show_message(place)
@@ -37,7 +44,7 @@ else
 				break
 			}
 			hold = noone
-			with growroom 
+			with growroom
 				map_generator.hold = find_nextdoor_room(self, place)
 			var newroom = hold
 			hold = noone
@@ -47,21 +54,25 @@ else
 				if place = 0
 				{	
 					growroom.doorRight = true
+					array_push(growroom.dir, "right")
 					newroom.doorLeft = true
 				}
 				if place = 1
 				{	
 					growroom.doorDown = true
+					array_push(growroom.dir, "down")
 					newroom.doorUp = true
 				}
 				if place = 2
 				{	
 					growroom.doorLeft = true
+					array_push(growroom.dir, "left")
 					newroom.doorRight = true
 				}
 				if place = 3
 				{	
 					growroom.doorUp = true
+					array_push(growroom.dir, "up")
 					newroom.doorDown = true
 				}
 				newroom.createRoom = true
@@ -76,6 +87,9 @@ else
 				{
 					newroom.roomSprite = roomspr_boss
 					newroom.special = "boss"
+					forceend = true
+					growcount = 0
+					break
 				}
 				break
 			}

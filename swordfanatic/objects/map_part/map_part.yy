@@ -36,5 +36,5 @@
     "path":"sprites/sprtest_0/sprtest_0.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

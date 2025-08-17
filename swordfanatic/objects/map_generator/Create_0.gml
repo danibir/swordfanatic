@@ -4,3 +4,4 @@ count = 50
 startroom = true
 hold = noone
 valid = true
+forceend = false

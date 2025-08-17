@@ -8,6 +8,7 @@ ynum = 0
 
 autodoor = false
 
+dir = []
 doorRight = false
 doorDown = false
 doorLeft = false
